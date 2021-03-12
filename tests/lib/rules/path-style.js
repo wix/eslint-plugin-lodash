@@ -36,7 +36,11 @@ ruleTester.run('path-style', rule, {
     }, {
         code: "_.invoke(x, ['a', 'some-value'])",
         errors: [{messageId: 'stringForSimple'}],
-        output: "_.invoke(x, 'a[some-value]')"
+        output: "_.invoke(x, 'a[\"some-value\"]')"
+    }, {
+        code: "_.invoke(x, ['a', 'b.c', 'd'])",
+        errors: [{messageId: 'stringForSimple'}],
+        output: "_.invoke(x, 'a[\"b.c\"].d')"
     }, {
         code: "_(x).invoke(['a']).filter(f).value()",
         errors: [{messageId: 'stringForSimple'}],
