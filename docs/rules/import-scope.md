@@ -1,14 +1,15 @@
 # Import Scope
 
-There are several ways to import Lodash methods: From single method files, as single members of the object, from single method packages, or as the full Lodash object.
+There are several ways to import Lodash methods: From single method files, as single members of the object, from per method packages, or as the full Lodash object.
 
 For example:
 
-| Import Syntax | Single Method                       | Destructured Members              | Full Import                   | Single Method Packages               |
+| Import Syntax | Single Method                       | Destructured Members              | Full Import                   | Per Method Packages                 |
 |---------------|-------------------------------------|-----------------------------------|-------------------------------|-------------------------------------|
 | CommonJS      | `const map = require('lodash/map')` | `const {map} = require('lodash')` | `const _ = require('lodash')` | `const map = require('lodash.map')` |
 | ES6 Modules   | `import map from 'lodash/map'`      | `import {map} from 'lodash'`      | `import _ from 'lodash'`      | `import map from 'lodash.map'`      |
 
+Note that [the use of per method packages is discouraged](https://lodash.com/per-method-packages).
 
 ## Rule Details
 
@@ -16,7 +17,7 @@ This rule takes one argument - the preferred import scope (default is `method`):
 * `method` for single method imports
 * `member` for destructured members
 * `full` for the full Lodash object
-* `method-package` for importing single method packages
+* `method-package` for importing per method packages
 
 
 The following patterns are considered warnings:
